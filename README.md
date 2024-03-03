@@ -5,7 +5,7 @@ Installation:
 
 * Install a recent NGSolve
 
-* Install NGS-myfe from github:
+* Install NGS-myfe from github. You may first git-fork the repo:
 
       git clone https://github.com/TUWien-ASC/NGS-myfe.git
       cd NGS-myfe
