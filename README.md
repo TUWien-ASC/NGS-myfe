@@ -14,5 +14,5 @@ Installation:
       cmake ..
       make -j4 install
 
-* Try notebooks from ...
+* Try notebooks from https://jschoeberl.github.io/iFEM/FEM/myFiniteElement.html
 
