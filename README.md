@@ -3,6 +3,11 @@
 
 Installation:
 
+* Install
+   - a recent C++ compiler
+   - CMake
+   - git
+
 * Install a recent NGSolve
 
 * Install NGS-myfe from github. You may first git-fork the repo:
