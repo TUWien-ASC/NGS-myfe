@@ -27,13 +27,13 @@ find_package(NGSolve CONFIG REQUIRED)
 # Create the module
 add_library(${module_name} SHARED ${source_files})
 target_link_libraries(${module_name} PUBLIC ngsolve Python3::Module)
-set_target_properties(${target} PROPERTIES PREFIX "" CXX_STANDARD 17)
+set_target_properties(${module_name} PROPERTIES PREFIX "" CXX_STANDARD 17)
 
 # Python does not recognize .dll (Windows) and .dylib (MacOS) file endings as modules
 if(WIN32)
-  set_target_properties(${target} PROPERTIES SUFFIX ".pyd" )
+  set_target_properties(${module_name} PROPERTIES SUFFIX ".pyd" )
 else(WIN32)
-  set_target_properties(${target} PROPERTIES SUFFIX ".so")
+  set_target_properties(${module_name} PROPERTIES SUFFIX ".so")
 endif(WIN32)
 
 if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
