@@ -1,20 +1,48 @@
-cmake_minimum_required(VERSION 3.5)
-project(myfe)
- 
-find_package(NGSolve CONFIG REQUIRED
-  HINTS /usr $ENV{NETGENDIR}/.. /opt/netgen/ /Applications/Netgen.app/Contents/Resources/CMake C:/netgen
-)
+###############################################################################
+# Edit here
+###############################################################################
 
-add_ngsolve_python_module(libmyfe src/myelement.cpp src/myfespace.cpp
-      src/mymodule.cpp)
+# make sure the module_name matches the first argument of PYBIND11_MODULE
+set(module_name myfe)
 
+set(source_files src/myelement.cpp src/myfespace.cpp src/mymodule.cpp)
 
+###############################################################################
+# Don't change anything below this line (unless you know what you are doing!)
+###############################################################################
+cmake_minimum_required(VERSION 3.16)
+project(${module_name})
 
-# check if CMAKE_INSTALL_PREFIX is set by user, otherwise install to netgen directory
+# Find NGSolve and Netgen using python
+find_package(Python3 REQUIRED COMPONENTS Interpreter Development.Module)
+
+set(Netgen_DIR "" CACHE PATH "Path to directory containing NetgenConfig.cmake")
+set(NGSolve_DIR "" CACHE PATH "Path to directory containing NGSolveConfig.cmake")
+
+execute_process(COMMAND ${Python3_EXECUTABLE} -m netgen.config OUTPUT_STRIP_TRAILING_WHITESPACE OUTPUT_VARIABLE Netgen_DIR)
+execute_process(COMMAND ${Python3_EXECUTABLE} -m ngsolve.config OUTPUT_STRIP_TRAILING_WHITESPACE OUTPUT_VARIABLE NGSolve_DIR)
+
+find_package(NGSolve CONFIG REQUIRED)
+
+# Create the module
+add_library(${module_name} SHARED ${source_files})
+target_link_libraries(${module_name} PUBLIC ngsolve Python3::Module)
+set_target_properties(${target} PROPERTIES PREFIX "" CXX_STANDARD 17)
+
+# Python does not recognize .dll (Windows) and .dylib (MacOS) file endings as modules
+if(WIN32)
+  set_target_properties(${target} PROPERTIES SUFFIX ".pyd" )
+else(WIN32)
+  set_target_properties(${target} PROPERTIES SUFFIX ".so")
+endif(WIN32)
+
 if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
-  set(CMAKE_INSTALL_PREFIX ${NETGEN_DIR} CACHE PATH "Install dir" FORCE)
+  execute_process(COMMAND ${Python3_EXECUTABLE} -m site --user-site OUTPUT_STRIP_TRAILING_WHITESPACE OUTPUT_VARIABLE install_dir RESULT_VARIABLE ret)
+  if (NOT ret EQUAL 0)
+    # user site directory is disabled (are we in a virtual environment?)
+    set(install_dir ${Python3_SITEARCH})
+  endif()
+  message("The python module ${module_name} will be installed to: ${install_dir}")
+  set(CMAKE_INSTALL_PREFIX ${install_dir} CACHE PATH "Install dir" FORCE)
 endif(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
-execute_process(COMMAND ${PYTHON_EXECUTABLE} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib(1,0,''))" OUTPUT_VARIABLE install_dir OUTPUT_STRIP_TRAILING_WHITESPACE)
-
-message("The python package will be installed to: ${CMAKE_INSTALL_PREFIX}/${install_dir}")
-install(TARGETS libmyfe DESTINATION ${install_dir})
+install(TARGETS ${module_name} DESTINATION .)
