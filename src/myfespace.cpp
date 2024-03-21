@@ -119,14 +119,3 @@ namespace ngcomp
 }
 
 
-void ExportMyFESpace(py::module m)
-{
-  using namespace ngcomp;
-
-  cout << "called ExportMyFESpace" << endl;
-
-  ExportFESpace<MyFESpace>(m, "MyFESpace", true)
-    .def("GetNVert", &MyFESpace::GetNVert, 
-            "return number of vertices")
-    ;
-}

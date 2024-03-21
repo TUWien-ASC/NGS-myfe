@@ -41,9 +41,6 @@ namespace ngcomp
     
     // generate FiniteElement for element-id ei
     FiniteElement & GetFE (ElementId ei, Allocator & alloc) const override;
-
-    // some new functionality our space should have in Python
-    size_t GetNVert() { return nvert; }
   };
 
 }    
