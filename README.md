@@ -8,7 +8,7 @@ Installation:
    - CMake
    - git
 
-* Install a recent NGSolve (March 20 or newer), install via
+* Install a recent NGSolve (version 6.2.2402-post16 from March 20 or newer), install via
     
       pip install --upgrade --pre ngsolve  
 
