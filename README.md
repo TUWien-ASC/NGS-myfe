@@ -10,7 +10,7 @@ Installation:
 
 * Install a recent NGSolve (March 20 or newer), install via
     
-     pip install --upgrade --pre ngsolve  
+      pip install --upgrade --pre ngsolve  
 
 * Install NGS-myfe from github. You may first git-fork the repo:
 
