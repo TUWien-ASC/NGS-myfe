@@ -14,7 +14,13 @@ cmake_minimum_required(VERSION 3.16)
 project(${module_name})
 
 # Find NGSolve and Netgen using python
-find_package(Python3 REQUIRED COMPONENTS Interpreter Development.Module)
+if(CMAKE_VERSION VERSION_LESS "3.18") 
+  find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
+else()
+  find_package(Python3 REQUIRED COMPONENTS Interpreter Development.Module)
+endif()
+
+
 
 set(Netgen_DIR "" CACHE PATH "Path to directory containing NetgenConfig.cmake")
 set(NGSolve_DIR "" CACHE PATH "Path to directory containing NGSolveConfig.cmake")
