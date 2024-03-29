@@ -23,6 +23,7 @@ Installation:
       make -j4 install
 
   **recommended:** all steps can be performed within vs-code. Set build target to *install*.
+  
   **NUM-PDE students:** have a look into whatsapp, Mar 29
   
 * Try notebooks from https://jschoeberl.github.io/iFEM/FEM/myFiniteElement.html
