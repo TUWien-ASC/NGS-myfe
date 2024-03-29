@@ -4,10 +4,10 @@
 Installation:
 
 * Install
-   - a recent C++ compiler
+   - a recent C++ compiler (msvc, gcc, clang, Apple-clang)
    - CMake
    - git
-   - recommended: vs-code, with CMake and git extensions
+   - recommended: vs-code, with GitLens and CMake extensions
 
 * Install a recent NGSolve (version 6.2.2402-post16 from March 20 or newer), install via
     
@@ -22,7 +22,8 @@ Installation:
       cmake ..
       make -j4 install
 
-  all steps can be performed within vs-code. Set build target to *install*.
+  **recommended:** all steps can be performed within vs-code. Set build target to *install*.
+  **NUM-PDE students:** have a look into whatsapp, Mar 29
   
 * Try notebooks from https://jschoeberl.github.io/iFEM/FEM/myFiniteElement.html
 
