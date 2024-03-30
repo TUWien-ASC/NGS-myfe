@@ -29,7 +29,7 @@ Installation:
  
    if there are more options, vscode asks for the compiler:
 
-   ![choose](pictures/step2-choosecompiler.png =250x)
+   ![choose](pictures/step2-choosecompiler.png)
 
    vscode runs cmake, if everything is good the output looks like 
    ![cmakeruns](pictures/step3-cmakeruns.png)
