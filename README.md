@@ -22,6 +22,18 @@ Installation:
       cmake ..
       make -j4 install
 
+* Building with Visual Studio Code
+
+  * Install Visual Studio Code. 
+  * Install a compiler, fow Windows see https://code.visualstudio.com/docs/cpp/config-msvc
+  * Install VS-Code extensions: GitLens, CMake Tools
+
+  * Now, clone the project TUWien-ASC/NGS-myfe from github
+
+   ![clone](pictures/step1-clone.png)  
+
+
+
   **recommended:** all steps can be performed within vs-code. Set build target to *install*.
   
   **NUM-PDE students:** have a look into whatsapp, Mar 29
