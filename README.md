@@ -17,19 +17,19 @@ Installation:
       cmake ..
       make -j4 install
 
-* Build and instdall using Visual Studio Code (recommended)
+* Build and install using Visual Studio Code (recommended)
 
   * Install Visual Studio Code. 
   * Install a compiler, for Windows see https://code.visualstudio.com/docs/cpp/config-msvc
   * Install VS-Code extensions: GitLens, CMake Tools
 
-  * Now, clone the project TUWien-ASC/NGS-myfe from github
+  * Now, git-clone the Repository TUWien-ASC/NGS-myfe from github
 
    ![clone](pictures/step1-clone.png)  
  
    if there are more options, vscode asks for the compiler:
 
-   ![choose](pictures/step2-choosecompiler.png)
+   ![choose](pictures/step2-choosecompiler.png =250x)
 
    vscode runs cmake, if everything is good the output looks like 
    ![cmakeruns](pictures/step3-cmakeruns.png)
