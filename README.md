@@ -1,19 +1,14 @@
 # NGS-myfe
 
-
 Installation:
 
-* Install
-   - a recent C++ compiler (msvc, gcc, clang, Apple-clang)
-   - CMake
-   - git
-   - recommended: vs-code, with GitLens and CMake extensions
-
-* Install a recent NGSolve (version 6.2.2402-post16 from March 20 or newer), install via
+* Install a recent NGSolve (version from March 30 or newer), install via
     
       pip install --upgrade --pre ngsolve  
 
-* Install NGS-myfe from github. You may first git-fork the repo:
+* Build and install using command-line tools (for experts): 
+ 
+  install git, CMake, a recent C++ compiler (gcc, clang)
 
       git clone https://github.com/TUWien-ASC/NGS-myfe.git
       cd NGS-myfe
@@ -22,21 +17,31 @@ Installation:
       cmake ..
       make -j4 install
 
-* Building with Visual Studio Code
+* Build and instdall using Visual Studio Code (recommended)
 
   * Install Visual Studio Code. 
-  * Install a compiler, fow Windows see https://code.visualstudio.com/docs/cpp/config-msvc
+  * Install a compiler, for Windows see https://code.visualstudio.com/docs/cpp/config-msvc
   * Install VS-Code extensions: GitLens, CMake Tools
 
   * Now, clone the project TUWien-ASC/NGS-myfe from github
 
    ![clone](pictures/step1-clone.png)  
+ 
+   if there are more options, vscode asks for the compiler:
 
+   ![choose](pictures/step2-choosecompiler.png)
 
+   vscode runs cmake, if everything is good the output looks like 
+   ![cmakeruns](pictures/step3-cmakeruns.png)
 
-  **recommended:** all steps can be performed within vs-code. Set build target to *install*.
-  
-  **NUM-PDE students:** have a look into whatsapp, Mar 29
+   we select the build target 'install', and 'RelWithDebInfo' configuration: 
+   ![selecttarget](pictures/step4-selecttarget.png)
+
+   finally, we click on the 'Build' button in the blue status bar			
+   ![build](pictures/step5-build.png)
+
+   Our own finite elements are installed !
+
   
 * Try notebooks from https://jschoeberl.github.io/iFEM/FEM/myFiniteElement.html
 
