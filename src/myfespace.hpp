@@ -45,7 +45,5 @@ namespace ngcomp
 
 }    
 
-void ExportMyFESpace(py::module m);
-
 
 #endif

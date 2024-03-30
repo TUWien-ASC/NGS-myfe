@@ -9,7 +9,6 @@ element, and the global mesh.
 
 
 #include <comp.hpp>    // provides FESpace, ...
-#include <python_comp.hpp>
 
 #include "myelement.hpp"
 #include "myfespace.hpp"
