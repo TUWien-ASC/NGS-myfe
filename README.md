@@ -2,7 +2,7 @@
 
 Installation:
 
-* Install a recent NGSolve (version from March 30 or newer), install via
+* Install a recent NGSolve (versions from 2024 or newer are fine), install via
     
       pip install --upgrade --pre ngsolve  
 
