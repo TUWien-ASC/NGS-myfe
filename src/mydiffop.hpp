@@ -18,7 +18,7 @@ namespace ngfem
    */
 
   // Our implementation of the identity operator, in two space dimensions.
-  class MyDiffOpId : public DiffOp<MyDiffOpId>
+  class MyDiffOpId2d : public DiffOp<MyDiffOpId2d>
   {
   public:
     // some constants for the diffop:
@@ -50,7 +50,7 @@ namespace ngfem
     
   // Gradient DiffOp: implements the chain rule for mapping gradients
   // from the reference element to the pysical element
-  class MyDiffOpGradient : public DiffOp<MyDiffOpGradient>
+  class MyDiffOpGradient2d : public DiffOp<MyDiffOpGradient2d>
   {
   public:    
     static constexpr int DIM = 1;       // dimension of the input

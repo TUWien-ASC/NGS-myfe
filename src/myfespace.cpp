@@ -42,9 +42,16 @@ namespace ngcomp
       cout << "You have chosen second order elements" << endl;
 
     // diffops are needed for function evaluation and evaluation of the gradient:
-    evaluator[VOL] = make_shared<T_DifferentialOperator<MyDiffOpId>>();
-    // evaluator[BND] = make_shared<T_DifferentialOperator<MyDiffOpId>>(); 
-    flux_evaluator[VOL] = make_shared<T_DifferentialOperator<MyDiffOpGradient>>();
+    if (ma->GetDimension()==2)
+      {
+        evaluator[VOL] = make_shared<T_DifferentialOperator<MyDiffOpId2d>>();
+        evaluator[BND] = make_shared<T_DifferentialOperator<MyDiffOpId2d>>(); 
+        flux_evaluator[VOL] = make_shared<T_DifferentialOperator<MyDiffOpGradient2d>>();
+      }
+    else
+      {
+        throw Exception("MyFESpace: only 2d meshes are supported");
+      }
   }
 
   DocInfo MyFESpace :: GetDocu()
