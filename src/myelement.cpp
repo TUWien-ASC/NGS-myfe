@@ -63,7 +63,7 @@ namespace ngfem
 
     // edge basis functions:
 
-    const EDGE * edges = ElementTopology::GetEdges (ET_TRIG);
+    auto edges = ElementTopology::GetEdges (ET_TRIG);
     // table provides connection of edges and vertices
     // i-th edge is between vertex edges[i][0] and edges[i][1]
 
@@ -95,7 +95,7 @@ namespace ngfem
 
 
     // edge basis functions:
-    const EDGE * edges = ElementTopology::GetEdges (ET_TRIG);
+    auto edges = ElementTopology::GetEdges (ET_TRIG);
 
     for (int i = 0; i < 3; i++)
       {
